@@ -30,7 +30,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #e5eaee;  /* The default color of the main navmenu links */
-  --nav-hover-color: #ff4a17; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color:#e5eaee; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -230,6 +230,12 @@ h6 {
   padding: 20px 0;
   transition: all 0.5s;
   z-index: 997;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.header.show-header {
+  transform: translateY(0);
 }
 
 .header .logo {
@@ -921,18 +927,15 @@ section,
 }
 
 .hero img {
-  position: absolute;
   inset: 0;
   display: block;
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   z-index: 1;
 }
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
+  background: color-mix(in srgb, var(--background-color), transparent 70%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -943,11 +946,28 @@ section,
   z-index: 3;
 }
 
+.hero .scroll-icon {
+  font-size: 100px;
+  display: block; /* Change from inline to block */
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
 .hero h2 {
   margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 55px;
+  font-weight: 750;
 }
 
 .hero p {
@@ -1005,6 +1025,21 @@ section,
   .hero p {
     font-size: 18px;
   }
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -1846,17 +1881,4 @@ section,
 }
 
 
-.hero video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
 
-.hero {
-  position: relative;
-  overflow: hidden;
-}

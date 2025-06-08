@@ -207,3 +207,16 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+window.addEventListener('scroll', function() {
+  const header = document.getElementById('header');
+  const heroSection = document.getElementById('hero');
+  const heroHeight = heroSection.offsetHeight;
+  
+  if (window.scrollY > heroHeight - 100) { // Show header 100px before hero ends
+    header.classList.add('show-header');
+  } else {
+    header.classList.remove('show-header');
+  }
+});
