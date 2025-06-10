@@ -1125,10 +1125,11 @@ section,
   transition: 0.6s;
 }
 
+
 .services .details {
-  background: color-mix(in srgb, var(--surface-color), transparent 5%);
+  background: color-mix(in srgb, var(--nav-dropdown-color), transparent 5%);
   padding: 50px 30px;
-  margin: -100px 30px 0 30px;
+  margin: -40px 30px 0 30px;
   transition: all ease-in-out 0.3s;
   position: relative;
   text-align: center;
@@ -1156,6 +1157,7 @@ section,
 }
 
 .services .details h3 {
+  color: var(--heading-color);
   font-weight: 700;
   margin: 10px 0 15px 0;
   font-size: 22px;
@@ -1170,7 +1172,7 @@ section,
 }
 
 .services .service-item:hover .details h3 {
-  color: var(--accent-color);
+  color: var(--contrast-color);
 }
 
 .services .service-item:hover .details .icon {
